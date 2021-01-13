@@ -2,12 +2,18 @@ const { db } = require('../utils/admin');
 
 exports.deleteTodo = (request, response) => {
   const document = db.doc(`/todos/${request.params.todoId}`);
+
   document
     .get()
     .then((doc) => {
       if (!doc.exists) {
         return response.status(404).json({ error: 'Todo not found' })
       }
+
+      if (doc.data().username !== request.user.username) {
+        return response.status(403).json({ error: "UnAuthorized" })
+      }
+
       return document.delete();
     })
     .then(() => {
@@ -23,7 +29,9 @@ exports.editTodo = (request, response) => {
   if (request.body.todoId || request.body.created) {
     response.status(403).json({ message: 'Not allowed to edit' });
   }
+
   let document = db.collection('todos').doc(`${request.params.todoId}`);
+
   document.update(request.body)
     .then(() => {
       response.json({ message: 'Updated successfully' });
@@ -39,6 +47,7 @@ exports.editTodo = (request, response) => {
 exports.getAllTodos = (request, response) => {
   db
     .collection('todos')
+    .where('username', '==', request.user.username)
     .orderBy('created', 'desc')
     .get()
     .then((data) => {
@@ -69,10 +78,12 @@ exports.postOneTodo = (request, response) => {
   }
 
   const newTodoItem = {
-    title: request.body.title,
     body: request.body.body,
-    createdAt: new Date().toISOString()
+    created: new Date().toISOString(),
+    title: request.body.title,
+    username: request.user.username,
   }
+
   db
     .collection('todos')
     .add(newTodoItem)

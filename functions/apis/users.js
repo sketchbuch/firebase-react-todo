@@ -19,6 +19,23 @@ const deleteImage = (imageName) => {
     })
 }
 
+exports.getUserDetail = (request, response) => {
+  let userData = {};
+  db
+    .doc(`/users/${request.user.username}`)
+    .get()
+    .then((doc) => {
+      if (doc.exists) {
+        userData.userCredentials = doc.data();
+        return response.json(userData);
+      }
+    })
+    .catch((error) => {
+      console.error(error);
+      return response.status(500).json({ error: error.code });
+    });
+}
+
 exports.loginUser = (request, response) => {
   const user = {
     email: request.body.email,
@@ -88,7 +105,7 @@ exports.signUpUser = (request, response) => {
         phoneNumber: newUser.phoneNumber,
         country: newUser.country,
         email: newUser.email,
-        createdAt: new Date().toISOString(),
+        created: new Date().toISOString(),
         userId
       };
       return db
@@ -160,3 +177,17 @@ exports.uploadProfilePhoto = (request, response) => {
   });
   busboy.end(request.rawBody);
 };
+
+exports.updateUserDetails = (request, response) => {
+  let document = db.collection('users').doc(`${request.user.username}`);
+  document.update(request.body)
+    .then(() => {
+      response.json({ message: 'Updated successfully' });
+    })
+    .catch((error) => {
+      console.error(error);
+      return response.status(500).json({
+        message: "Cannot Update the value"
+      });
+    });
+}
