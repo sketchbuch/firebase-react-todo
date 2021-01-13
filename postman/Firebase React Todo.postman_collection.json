@@ -1,0 +1,387 @@
+{
+	"info": {
+		"_postman_id": "d6ac9ac7-4b20-4eaf-813a-f0747115a624",
+		"name": "Firebase React Todo",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{   \n    \"email\":\"sig.ar.dump@gmail.com\", \n    \"password\": \"password\"\n}"
+						},
+						"url": {
+							"raw": "http://{{domain}}:{{port}}/{{appId}}/{{region}}/api/login",
+							"protocol": "http",
+							"host": [
+								"{{domain}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"{{appId}}",
+								"{{region}}",
+								"api",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   \"firstName\": \"Arnold\",\n   \"lastName\": \"Rimmer\",\n   \"email\":\"arnold.rimmer2@reddwarf.co.uk\",\n   \"phoneNumber\": \"0123456789\",\n   \"country\": \"England\",\n   \"password\": \"letmein\",\n   \"confirmPassword\": \"letmein\",\n   \"username\": \"duke\"\n}"
+						},
+						"url": {
+							"raw": "http://{{domain}}:{{port}}/{{appId}}/{{region}}/api/signup",
+							"protocol": "http",
+							"host": [
+								"{{domain}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"{{appId}}",
+								"{{region}}",
+								"api",
+								"signup"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Image Upload",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsImtpZCI6IjVmOTcxMmEwODczMTcyMGQ2NmZkNGEyYTU5MmU0ZGZjMmI1ZGU1OTUiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL3NlY3VyZXRva2VuLmdvb2dsZS5jb20vcmVhY3R0b2RvLTU4ZDA1IiwiYXVkIjoicmVhY3R0b2RvLTU4ZDA1IiwiYXV0aF90aW1lIjoxNjEwNTU1NDAzLCJ1c2VyX2lkIjoid2ZCZk9icmRTR1ZKbXY5ckFmMXpOaEpwRkJkMiIsInN1YiI6IndmQmZPYnJkU0dWSm12OXJBZjF6TmhKcEZCZDIiLCJpYXQiOjE2MTA1NTU0MDMsImV4cCI6MTYxMDU1OTAwMywiZW1haWwiOiJhcm5vbGQucmltbWVyMkByZWRkd2FyZi5jby51ayIsImVtYWlsX3ZlcmlmaWVkIjpmYWxzZSwiZmlyZWJhc2UiOnsiaWRlbnRpdGllcyI6eyJlbWFpbCI6WyJhcm5vbGQucmltbWVyMkByZWRkd2FyZi5jby51ayJdfSwic2lnbl9pbl9wcm92aWRlciI6InBhc3N3b3JkIn19.F86ZYMlxrkdy2CZjIEQF4Eo4zF1j6NyhL7GGtC9ng87Q4EamTXyrWzpOqoU06QQ7Lm3X9wOKHU_C1odLj5dLib6mmTOyZKQYncqVJUr3FAfQ0KXEG8CJuH-ccuRAdpLCGY8ZsL8MS_W9v4Z9Q6vIarX6QhWJqoU9chtTAKk2GFEn20rATd7EyI0KG6lkkQcGrtUeqQoGDngYMi6jCQReJtyK7XRWKVtZraYNQNAEz8tRuC5XvroppIZ-kiMPp7cQdIktag-i4-GRYs8GQeuKOltW-ifCMPA6mLYRmd4cQXPFujtmDmHpkZuCvrx_GJwCh1-Bxm_TNCNTYUKHHWU8XQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "image",
+									"type": "file",
+									"src": ""
+								}
+							]
+						},
+						"url": {
+							"raw": "http://{{domain}}:{{port}}/{{appId}}/{{region}}/api/user/image",
+							"protocol": "http",
+							"host": [
+								"{{domain}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"{{appId}}",
+								"{{region}}",
+								"api",
+								"user",
+								"image"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get User",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsImtpZCI6IjVmOTcxMmEwODczMTcyMGQ2NmZkNGEyYTU5MmU0ZGZjMmI1ZGU1OTUiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL3NlY3VyZXRva2VuLmdvb2dsZS5jb20vcmVhY3R0b2RvLTU4ZDA1IiwiYXVkIjoicmVhY3R0b2RvLTU4ZDA1IiwiYXV0aF90aW1lIjoxNjEwNTU1NDAzLCJ1c2VyX2lkIjoid2ZCZk9icmRTR1ZKbXY5ckFmMXpOaEpwRkJkMiIsInN1YiI6IndmQmZPYnJkU0dWSm12OXJBZjF6TmhKcEZCZDIiLCJpYXQiOjE2MTA1NTU0MDMsImV4cCI6MTYxMDU1OTAwMywiZW1haWwiOiJhcm5vbGQucmltbWVyMkByZWRkd2FyZi5jby51ayIsImVtYWlsX3ZlcmlmaWVkIjpmYWxzZSwiZmlyZWJhc2UiOnsiaWRlbnRpdGllcyI6eyJlbWFpbCI6WyJhcm5vbGQucmltbWVyMkByZWRkd2FyZi5jby51ayJdfSwic2lnbl9pbl9wcm92aWRlciI6InBhc3N3b3JkIn19.F86ZYMlxrkdy2CZjIEQF4Eo4zF1j6NyhL7GGtC9ng87Q4EamTXyrWzpOqoU06QQ7Lm3X9wOKHU_C1odLj5dLib6mmTOyZKQYncqVJUr3FAfQ0KXEG8CJuH-ccuRAdpLCGY8ZsL8MS_W9v4Z9Q6vIarX6QhWJqoU9chtTAKk2GFEn20rATd7EyI0KG6lkkQcGrtUeqQoGDngYMi6jCQReJtyK7XRWKVtZraYNQNAEz8tRuC5XvroppIZ-kiMPp7cQdIktag-i4-GRYs8GQeuKOltW-ifCMPA6mLYRmd4cQXPFujtmDmHpkZuCvrx_GJwCh1-Bxm_TNCNTYUKHHWU8XQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://{{domain}}:{{port}}/{{appId}}/{{region}}/api/user",
+							"protocol": "http",
+							"host": [
+								"{{domain}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"{{appId}}",
+								"{{region}}",
+								"api",
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit User",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsImtpZCI6IjVmOTcxMmEwODczMTcyMGQ2NmZkNGEyYTU5MmU0ZGZjMmI1ZGU1OTUiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL3NlY3VyZXRva2VuLmdvb2dsZS5jb20vcmVhY3R0b2RvLTU4ZDA1IiwiYXVkIjoicmVhY3R0b2RvLTU4ZDA1IiwiYXV0aF90aW1lIjoxNjEwNTU1NDAzLCJ1c2VyX2lkIjoid2ZCZk9icmRTR1ZKbXY5ckFmMXpOaEpwRkJkMiIsInN1YiI6IndmQmZPYnJkU0dWSm12OXJBZjF6TmhKcEZCZDIiLCJpYXQiOjE2MTA1NTU0MDMsImV4cCI6MTYxMDU1OTAwMywiZW1haWwiOiJhcm5vbGQucmltbWVyMkByZWRkd2FyZi5jby51ayIsImVtYWlsX3ZlcmlmaWVkIjpmYWxzZSwiZmlyZWJhc2UiOnsiaWRlbnRpdGllcyI6eyJlbWFpbCI6WyJhcm5vbGQucmltbWVyMkByZWRkd2FyZi5jby51ayJdfSwic2lnbl9pbl9wcm92aWRlciI6InBhc3N3b3JkIn19.F86ZYMlxrkdy2CZjIEQF4Eo4zF1j6NyhL7GGtC9ng87Q4EamTXyrWzpOqoU06QQ7Lm3X9wOKHU_C1odLj5dLib6mmTOyZKQYncqVJUr3FAfQ0KXEG8CJuH-ccuRAdpLCGY8ZsL8MS_W9v4Z9Q6vIarX6QhWJqoU9chtTAKk2GFEn20rATd7EyI0KG6lkkQcGrtUeqQoGDngYMi6jCQReJtyK7XRWKVtZraYNQNAEz8tRuC5XvroppIZ-kiMPp7cQdIktag-i4-GRYs8GQeuKOltW-ifCMPA6mLYRmd4cQXPFujtmDmHpkZuCvrx_GJwCh1-Bxm_TNCNTYUKHHWU8XQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"firstName\": \"Arnold\",\n    \"lastName\": \"Rimmer 2\"\n}"
+						},
+						"url": {
+							"raw": "http://{{domain}}:{{port}}/{{appId}}/{{region}}/api/user",
+							"protocol": "http",
+							"host": [
+								"{{domain}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"{{appId}}",
+								"{{region}}",
+								"api",
+								"user"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Get Todos",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJSUzI1NiIsImtpZCI6IjVmOTcxMmEwODczMTcyMGQ2NmZkNGEyYTU5MmU0ZGZjMmI1ZGU1OTUiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL3NlY3VyZXRva2VuLmdvb2dsZS5jb20vcmVhY3R0b2RvLTU4ZDA1IiwiYXVkIjoicmVhY3R0b2RvLTU4ZDA1IiwiYXV0aF90aW1lIjoxNjEwNTU1NDAzLCJ1c2VyX2lkIjoid2ZCZk9icmRTR1ZKbXY5ckFmMXpOaEpwRkJkMiIsInN1YiI6IndmQmZPYnJkU0dWSm12OXJBZjF6TmhKcEZCZDIiLCJpYXQiOjE2MTA1NTU0MDMsImV4cCI6MTYxMDU1OTAwMywiZW1haWwiOiJhcm5vbGQucmltbWVyMkByZWRkd2FyZi5jby51ayIsImVtYWlsX3ZlcmlmaWVkIjpmYWxzZSwiZmlyZWJhc2UiOnsiaWRlbnRpdGllcyI6eyJlbWFpbCI6WyJhcm5vbGQucmltbWVyMkByZWRkd2FyZi5jby51ayJdfSwic2lnbl9pbl9wcm92aWRlciI6InBhc3N3b3JkIn19.F86ZYMlxrkdy2CZjIEQF4Eo4zF1j6NyhL7GGtC9ng87Q4EamTXyrWzpOqoU06QQ7Lm3X9wOKHU_C1odLj5dLib6mmTOyZKQYncqVJUr3FAfQ0KXEG8CJuH-ccuRAdpLCGY8ZsL8MS_W9v4Z9Q6vIarX6QhWJqoU9chtTAKk2GFEn20rATd7EyI0KG6lkkQcGrtUeqQoGDngYMi6jCQReJtyK7XRWKVtZraYNQNAEz8tRuC5XvroppIZ-kiMPp7cQdIktag-i4-GRYs8GQeuKOltW-ifCMPA6mLYRmd4cQXPFujtmDmHpkZuCvrx_GJwCh1-Bxm_TNCNTYUKHHWU8XQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://{{domain}}:{{port}}/{{appId}}/{{region}}/api/todos",
+					"protocol": "http",
+					"host": [
+						"{{domain}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"{{appId}}",
+						"{{region}}",
+						"api",
+						"todos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Todo",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJSUzI1NiIsImtpZCI6IjVmOTcxMmEwODczMTcyMGQ2NmZkNGEyYTU5MmU0ZGZjMmI1ZGU1OTUiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL3NlY3VyZXRva2VuLmdvb2dsZS5jb20vcmVhY3R0b2RvLTU4ZDA1IiwiYXVkIjoicmVhY3R0b2RvLTU4ZDA1IiwiYXV0aF90aW1lIjoxNjEwNTU1NDAzLCJ1c2VyX2lkIjoid2ZCZk9icmRTR1ZKbXY5ckFmMXpOaEpwRkJkMiIsInN1YiI6IndmQmZPYnJkU0dWSm12OXJBZjF6TmhKcEZCZDIiLCJpYXQiOjE2MTA1NTU0MDMsImV4cCI6MTYxMDU1OTAwMywiZW1haWwiOiJhcm5vbGQucmltbWVyMkByZWRkd2FyZi5jby51ayIsImVtYWlsX3ZlcmlmaWVkIjpmYWxzZSwiZmlyZWJhc2UiOnsiaWRlbnRpdGllcyI6eyJlbWFpbCI6WyJhcm5vbGQucmltbWVyMkByZWRkd2FyZi5jby51ayJdfSwic2lnbl9pbl9wcm92aWRlciI6InBhc3N3b3JkIn19.F86ZYMlxrkdy2CZjIEQF4Eo4zF1j6NyhL7GGtC9ng87Q4EamTXyrWzpOqoU06QQ7Lm3X9wOKHU_C1odLj5dLib6mmTOyZKQYncqVJUr3FAfQ0KXEG8CJuH-ccuRAdpLCGY8ZsL8MS_W9v4Z9Q6vIarX6QhWJqoU9chtTAKk2GFEn20rATd7EyI0KG6lkkQcGrtUeqQoGDngYMi6jCQReJtyK7XRWKVtZraYNQNAEz8tRuC5XvroppIZ-kiMPp7cQdIktag-i4-GRYs8GQeuKOltW-ifCMPA6mLYRmd4cQXPFujtmDmHpkZuCvrx_GJwCh1-Bxm_TNCNTYUKHHWU8XQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n   \"title\":\"Whovian\",\n   \"body\": \"Voyager kicks arse!\"\n}"
+				},
+				"url": {
+					"raw": "http://{{domain}}:{{port}}/{{appId}}/{{region}}/api/todo",
+					"protocol": "http",
+					"host": [
+						"{{domain}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"{{appId}}",
+						"{{region}}",
+						"api",
+						"todo"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Todo",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJSUzI1NiIsImtpZCI6IjVmOTcxMmEwODczMTcyMGQ2NmZkNGEyYTU5MmU0ZGZjMmI1ZGU1OTUiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL3NlY3VyZXRva2VuLmdvb2dsZS5jb20vcmVhY3R0b2RvLTU4ZDA1IiwiYXVkIjoicmVhY3R0b2RvLTU4ZDA1IiwiYXV0aF90aW1lIjoxNjEwNTU1NDAzLCJ1c2VyX2lkIjoid2ZCZk9icmRTR1ZKbXY5ckFmMXpOaEpwRkJkMiIsInN1YiI6IndmQmZPYnJkU0dWSm12OXJBZjF6TmhKcEZCZDIiLCJpYXQiOjE2MTA1NTU0MDMsImV4cCI6MTYxMDU1OTAwMywiZW1haWwiOiJhcm5vbGQucmltbWVyMkByZWRkd2FyZi5jby51ayIsImVtYWlsX3ZlcmlmaWVkIjpmYWxzZSwiZmlyZWJhc2UiOnsiaWRlbnRpdGllcyI6eyJlbWFpbCI6WyJhcm5vbGQucmltbWVyMkByZWRkd2FyZi5jby51ayJdfSwic2lnbl9pbl9wcm92aWRlciI6InBhc3N3b3JkIn19.F86ZYMlxrkdy2CZjIEQF4Eo4zF1j6NyhL7GGtC9ng87Q4EamTXyrWzpOqoU06QQ7Lm3X9wOKHU_C1odLj5dLib6mmTOyZKQYncqVJUr3FAfQ0KXEG8CJuH-ccuRAdpLCGY8ZsL8MS_W9v4Z9Q6vIarX6QhWJqoU9chtTAKk2GFEn20rATd7EyI0KG6lkkQcGrtUeqQoGDngYMi6jCQReJtyK7XRWKVtZraYNQNAEz8tRuC5XvroppIZ-kiMPp7cQdIktag-i4-GRYs8GQeuKOltW-ifCMPA6mLYRmd4cQXPFujtmDmHpkZuCvrx_GJwCh1-Bxm_TNCNTYUKHHWU8XQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://{{domain}}:{{port}}/{{appId}}/{{region}}/api/todo/{{todoId}}?",
+					"protocol": "http",
+					"host": [
+						"{{domain}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"{{appId}}",
+						"{{region}}",
+						"api",
+						"todo",
+						"{{todoId}}"
+					],
+					"query": [
+						{
+							"key": "todoId",
+							"value": "PJYDGJCowlZ3ykOX5fbR",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Edit Todo",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n   \"body\": \"We are writing this awesome API 2222\"\n}"
+				},
+				"url": {
+					"raw": "http://{{domain}}:{{port}}/{{appId}}/{{region}}/api/todo/{{todoId}}?",
+					"protocol": "http",
+					"host": [
+						"{{domain}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"{{appId}}",
+						"{{region}}",
+						"api",
+						"todo",
+						"{{todoId}}"
+					],
+					"query": [
+						{
+							"key": "todoId",
+							"value": "FJcmd9nnpsQTFrU83xjG",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
