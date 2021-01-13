@@ -1,0 +1,18 @@
+{
+  "autorun": false,
+  "autokill": true,
+  "terminals": [
+    {
+      "name": "Firebase",
+      "cwd": "~/Dev/firebase/firebase-react-todo"
+    },
+    {
+      "name": "API (Functions)",
+      "cwd": "~/Dev/firebase/firebase-react-todo/functions"
+    },
+    {
+      "name": "View",
+      "cwd": "~/Dev/firebase/firebase-react-todo/view"
+    }
+  ]
+}
